@@ -7,6 +7,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </h:head>
     <h:body>
+        
+        <f:event type="preRenderView" listener="#{loginBean.validate()}" />
+        <f:event type="preRenderView" listener="#{loginBean.setNotLogged()}" />
+
+        
         <h1>TRAINING APP</h1>
         <br/><br/>
         <h:form>

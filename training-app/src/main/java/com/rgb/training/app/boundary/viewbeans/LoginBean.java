@@ -13,11 +13,12 @@ import java.io.Serializable;
  * @author nami
  */
 @Named 
-@RequestScoped
+@SessionScoped
 public class LoginBean implements Serializable {
 
     private String username;
     private String password;
+    private boolean logged;
     
 
     private static final String ADMIN_USER = "admin";
@@ -25,6 +26,7 @@ public class LoginBean implements Serializable {
 
     public String login() {
         if (ADMIN_USER.equals(this.username) && ADMIN_PASS.equals(this.password)) {
+            logged=true;
             return "index?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
@@ -40,9 +42,28 @@ public class LoginBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "login?faces-redirect=true";
     }
+    
+     public boolean validate() {
+        if (!this.logged) {
+           FacesContext.getCurrentInstance().addMessage(null,
+               new jakarta.faces.application.FacesMessage(
+                   jakarta.faces.application.FacesMessage.SEVERITY_ERROR,
+                    "Login error",
+                    null));
+            return false;
+        }
+        return true;
+    }
 
     // getters y setters
     public String getUsername() { return this.username; }
+    public boolean getlogin() { 
+  
+        return this.logged; 
+    }
+    public void setNotLogged(){
+        this.logged=false;
+    }
     public void setUsername(String username) { this.username = username; }
     public String getPassword() { return this.password; }
     public void setPassword(String password) { this.password = password; }
