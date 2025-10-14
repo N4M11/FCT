@@ -17,8 +17,8 @@ import jakarta.ws.rs.core.Response;
  * @author luiscarlosgonzalez
  * 
  */
-@Startup
-@Singleton
+//@Startup
+//@Singleton
 public class AppScheduledTasks {
     
    

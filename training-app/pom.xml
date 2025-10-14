@@ -23,6 +23,14 @@
 		<name>ObjectDB Repository</name>
 		<url>https://m2.objectdb.com</url>
 	</repository>	
+        
+        
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Repo</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+        
     </repositories>
 
     <dependencies>
@@ -109,10 +117,22 @@
 		<version>2.9.4</version>
 	</dependency>
         
-         
+        <!-- CDI API -->
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        
+  
+        
     </dependencies>
 
     <build>
+        <finalName>jsf-simple-login</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -123,17 +143,17 @@
                         <args>-Djava.endorsed.dirs=${endorsed.dir}</args>
                     </compilerArgs>
                     <annotationProcessorPaths>
-                        <!-- Include Jakarta JSON-B API -->
+                        <!-- Jakarta JSON-B API -->
                         <path>
                             <groupId>jakarta.json.bind</groupId>
                             <artifactId>jakarta.json.bind-api</artifactId>
-                            <version>2.0.0</version> <!-- Adjust version as needed -->
+                            <version>2.0.0</version> 
                         </path>
-                        <!-- Include Jakarta JSON-B implementation -->
+
                         <path>
                             <groupId>org.eclipse</groupId>
                             <artifactId>yasson</artifactId>
-                            <version>2.0.4</version> <!-- Adjust version as needed -->
+                            <version>2.0.4</version> 
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

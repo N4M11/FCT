@@ -39,6 +39,7 @@ com/rgb/training/app/app/ProgrammaticTimer.class
 com/rgb/training/app/boundary/rest/JakartaEE91Resource.class
 com/rgb/training/app/data/repository/MyTableJTARepository.class
 com/rgb/training/app/common/odoo/types/Domain.class
+com/rgb/training/app/boundary/viewbeans/LoginBean.class
 com/rgb/training/app/boundary/rest/DeviceSyncResource.class
 com/rgb/training/app/boundary/rest/MyTableJTARepositoryResource.class
 com/rgb/training/app/boundary/rest/MyTableRLRepositoryResource.class

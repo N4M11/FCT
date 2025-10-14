@@ -8,8 +8,9 @@ import jakarta.ejb.Startup;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
-@Startup
-@Singleton
+
+//@Startup
+//@Singleton
 
 /**
  *
