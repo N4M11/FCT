@@ -18,6 +18,7 @@ public class LoginBean implements Serializable {
 
     private String username;
     private String password;
+    
 
     private static final String ADMIN_USER = "admin";
     private static final String ADMIN_PASS = "admin";

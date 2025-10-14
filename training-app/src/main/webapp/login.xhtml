@@ -13,29 +13,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <style>
             .form-group{
                 border: 1px black;
+                font-weight: bold;
+                color: whitesmoke;
+                padding: 8px;
             }
+            body{
+                background-color: #F5F0F6;
+                font-family: Elvetica,Arial;
+            }
+            .login-container{
+                display:flex;
+                align-items: center;
+                width: 300px;
+                margin: 100px auto;
+                padding: 20px;
+                border-radius: 15px;
+                background-color: #385F71 ;
+                opacity: 0.9;
+            }
+            .login_button{
+                padding: 7px;
+                border:0px;
+                background-color: #2B4162;
+                color: #F5F0F6;
+                margin-left: 8px;
+                border-radius: 5px;
+
+            }
+            .login_button:hover{
+                background-color: #F5F0F6;
+                color: #2B4162;
+                cursor: pointer;
+                font-weight: bold;
+
+            }
+            
+            
         </style>
     </h:head>
     
     <h:body>
         <div class="login-container">
-            <h2 style="text-align: center;">LOGIN</h2>
 
             <h:messages errorClass="error" globalOnly="true"/>
 
             <h:form>
                 <div class="form-group">
-                    <h:outputLabel for="username" value="User:"/>
+                    <h:outputLabel for="username" value="User  "/>
                     <h:inputText id="username" value="#{loginBean.username}"
-                                 required="true" requiredMessage="Usuario es requerido"/>
+                                 required="true" requiredMessage="User required"/>
                 </div>
 
                 <div class="form-group">
-                    <h:outputLabel for="password" value="Password"/>
+                    <h:outputLabel for="password" value="Password  "/>
                     <h:inputSecret id="password" value="#{loginBean.password}"
                                    required="true" requiredMessage="Password required"/>
                 </div>
-                <h:commandButton value="login" action="#{loginBean.login}" />
+                <h:commandButton class="login_button" value="LOGIN" action="#{loginBean.login}" />
 
 
 
