@@ -7,6 +7,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 /**
  *
@@ -43,16 +44,16 @@ public class LoginBean implements Serializable {
         return "login?faces-redirect=true";
     }
     
-     public boolean validate() {
+     public void validate() {
         if (!this.logged) {
-           FacesContext.getCurrentInstance().addMessage(null,
-               new jakarta.faces.application.FacesMessage(
-                   jakarta.faces.application.FacesMessage.SEVERITY_ERROR,
-                    "Login error",
-                    null));
-            return false;
+            try {
+                // Redirigir a login.xhtml
+                FacesContext.getCurrentInstance().getExternalContext()
+                    .redirect("login.xhtml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return true;
     }
 
     // getters y setters
