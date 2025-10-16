@@ -23,6 +23,7 @@ com/rgb/training/app/common/rest/SecurityKeyAuth.class
 com/rgb/training/app/data/model/Device.class
 com/rgb/training/app/data/repository/ReparationJTARepository.class
 com/rgb/training/app/controller/mytable/Java2OdooSyncController.class
+com/rgb/training/app/boundary/viewbeans/IndexBean.class
 com/rgb/training/app/boundary/rest/ReparationJTARepositoryResource.class
 com/rgb/training/app/common/rest/SecurityKeyAuthorizer.class
 com/rgb/training/app/common/odoo/utils/DataTypeParser.class

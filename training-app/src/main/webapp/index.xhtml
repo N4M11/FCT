@@ -5,26 +5,81 @@
     <h:head>
         <title>Main Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+            .header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .button{
+                padding: 7px;
+                border:0px;
+                background-color: #F5F0F6;
+                color: #2B4162;
+                margin-left: 8px;
+                border-radius: 5px;
+            }
+            .button:hover{
+                cursor: pointer;
+                font-weight: bold;
+
+            }
+            h1{
+                color: whitesmoke;
+                text-align: center;
+                padding: 30px;
+                margin: auto;
+            }
+            body{
+                background-color: #385F71;
+                font-family: Elvetica,Arial;
+            }
+            .container{
+                display:flex;
+                align-items: center;
+                margin-left: 700px ;
+                padding: 20px;
+                border-radius: 15px;
+                opacity: 0.9;
+                width: 700px;
+
+            }
+            pre{
+                background:#f8f8f8;
+                padding:10px;
+                border:1px solid #ddd;
+            }
+        </style>
     </h:head>
     <h:body>
         
         <f:event type="preRenderView" listener="#{loginBean.validate()}" />
-        <f:event type="preRenderView" listener="#{loginBean.setNotLogged()}" />
-
-        
-        <h1>TRAINING APP</h1>
+        <div class="header">
+            <h1>TRAINING APP</h1>
+            <h:form >
+                <h:commandButton class="button" value="Logout" action="#{loginBean.logout()}" />
+            </h:form>
+        </div>
         <br/><br/>
-        <h:form>
-            <h:commandButton value="Cerrar Sesión" action="#{loginBean.logout()}" />
-        </h:form>
+        
+        <div class="container">
+            <h:form id="form">
+                <h:commandButton class="button" value="Get" action="#{indexBean.loadDevices()}">
+                    <f:ajax render="devices" />
+                </h:commandButton>
 
-        <h:form>
-            <h:outputLabel value="Text: " for="text" />
-            <h:inputText id="text" value="#{testViewBean.text}" />
-            <h:commandButton value="Text+Extra" action="#{testViewBean.getTextWithExtra()}" />
-            <br/><br/>
-            <h:outputText value="#{testViewBean.getTextWithExtra()}" />
-        </h:form>
+                <br/><br/>
+
+                <pre>
+                    <h:outputText id="devices" value="#{indexBean.devicesJson}" escape="false" />
+                </pre>
+            </h:form>
+        </div>
+
 
     </h:body>
 </html>
+
+<!--//form amb desplegable: get, post, delete
+//get: llista
+//post i delete: msg de ok/error
+//botón que ejecute funciones-->

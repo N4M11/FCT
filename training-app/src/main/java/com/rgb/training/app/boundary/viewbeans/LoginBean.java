@@ -19,7 +19,7 @@ public class LoginBean implements Serializable {
 
     private String username;
     private String password;
-    private boolean logged;
+    private boolean logged=false;
     
 
     private static final String ADMIN_USER = "admin";
@@ -47,7 +47,6 @@ public class LoginBean implements Serializable {
      public void validate() {
         if (!this.logged) {
             try {
-                // Redirigir a login.xhtml
                 FacesContext.getCurrentInstance().getExternalContext()
                     .redirect("login.xhtml");
             } catch (IOException e) {
@@ -56,7 +55,6 @@ public class LoginBean implements Serializable {
         }
     }
 
-    // getters y setters
     public String getUsername() { return this.username; }
     public boolean getlogin() { 
   
