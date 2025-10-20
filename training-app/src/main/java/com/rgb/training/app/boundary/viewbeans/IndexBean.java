@@ -15,6 +15,7 @@ import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -35,24 +36,24 @@ public class IndexBean implements Serializable {
 
    
     private List<Device> devices;
-    private String devicesJson;
+    private int[] options;
+
     @Inject
     private DeviceJTARepository deviceRepo;
 
     
-    public void loadDevices() {
-        devices = deviceRepo.getAll();
-
-        JsonbConfig config = new JsonbConfig()
-                                .withFormatting(true); 
-
-        Jsonb jsonb = JsonbBuilder.create(config);
-        this.devicesJson = jsonb.toJson(devices);
+     public void loadDevices() {
+        this.devices = this.deviceRepo.getAll();
     }
 
-    public String getDevicesJson() {
-        return devicesJson;
+    public List<Device> getDevices() {
+        return this.devices;
     }
+    
+    
+    
+
+   
 
 
     

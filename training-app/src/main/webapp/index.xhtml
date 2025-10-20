@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Main Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -48,6 +49,12 @@
                 padding:10px;
                 border:1px solid #ddd;
             }
+            devicesTable{
+                border-collapse: collapse;
+                border: 5px #F5F0F6;
+                color:  #F5F0F6;
+                
+            }
         </style>
     </h:head>
     <h:body>
@@ -62,16 +69,38 @@
         <br/><br/>
         
         <div class="container">
-            <h:form id="form">
-                <h:commandButton class="button" value="Get" action="#{indexBean.loadDevices()}">
-                    <f:ajax render="devices" />
-                </h:commandButton>
+            <h:form id="devicesForm">
 
+                <h:commandButton class="button" value="Get" action="#{indexBean.loadDevices()}"/>
+                
+                 
                 <br/><br/>
+                        
+                <h:dataTable id="devicesTable" value="#{indexBean.devices}" var="d"
+                             border="1" cellpadding="5" cellspacing="0">
 
-                <pre>
-                    <h:outputText id="devices" value="#{indexBean.devicesJson}" escape="false" />
-                </pre>
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        #{d.deviceId} 
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Brand</f:facet>
+                        #{d.brand}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Model</f:facet>
+                        #{d.model}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Serial number</f:facet>
+                        #{d.serialNumber} 
+                    </h:column>
+
+                </h:dataTable>
+
             </h:form>
         </div>
 
