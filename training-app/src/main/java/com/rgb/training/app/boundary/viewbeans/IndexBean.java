@@ -33,7 +33,8 @@ import java.util.List;
 @Named 
 @SessionScoped
 public class IndexBean implements Serializable {
-    
+    private static final long serialVersionUID = 2102025;
+
     private int selectedOption = 0; 
     private int option = 0;
     

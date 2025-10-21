@@ -24,6 +24,7 @@ public class LoginBean implements Serializable {
 
     private static final String ADMIN_USER = "admin";
     private static final String ADMIN_PASS = "admin";
+    private static final long serialVersionUID = 1102025;
 
     public String login() {
         if (ADMIN_USER.equals(this.username) && ADMIN_PASS.equals(this.password)) {
