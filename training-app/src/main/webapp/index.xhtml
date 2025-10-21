@@ -137,6 +137,19 @@
                 </h:form>
             </h:panelGroup>
             
+            <h:panelGroup rendered="#{indexBean.selectedOption == 4}">
+                <h:form id="deleteForm">
+                    <h3>Delete Device</h3>
+                    <label>ID</label>
+                    <h:inputText id="did" value="#{indexBean.deleteId}"/><br/>
+                    
+                    <h:commandButton value="Delete" action="#{indexBean.deleteDevice()}">
+                        <f:ajax execute="@form" render="messages panelArea" />
+                    </h:commandButton> 
+
+                </h:form>
+            </h:panelGroup>
+            
             
         </h:panelGroup>
             

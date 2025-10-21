@@ -83,7 +83,7 @@ public class IndexBean implements Serializable {
         }
     }
 
-    public void deleteDeviceAction() {
+    public void deleteDevice() {
         try {
             deviceRepo.delete(deleteId);
             message = "Device deleted";
