@@ -70,92 +70,90 @@
         
         <div class="container">
             <h:form id="controlForm">
-        <h:selectOneMenu id="opt" value="#{indexBean.selectedOption}">
-            <f:selectItem itemValue="#{0}" itemLabel="-- SELECT --" />
-            <f:selectItem itemValue="#{1}" itemLabel="Get" />
-            <f:selectItem itemValue="#{2}" itemLabel="Create" />
-            <f:selectItem itemValue="#{3}" itemLabel="Update" />
-            <f:selectItem itemValue="#{4}" itemLabel="Delete" />
-        </h:selectOneMenu>
+                <h:selectOneMenu id="opt" value="#{indexBean.selectedOption}">
+                    <f:selectItem itemValue="#{0}" itemLabel="-- SELECT --" />
+                    <f:selectItem itemValue="#{1}" itemLabel="Get" />
+                    <f:selectItem itemValue="#{2}" itemLabel="Create" />
+                    <f:selectItem itemValue="#{3}" itemLabel="Update" />
+                    <f:selectItem itemValue="#{4}" itemLabel="Delete" />
+                </h:selectOneMenu>
+                <h:commandButton value="Send" class="button">
+                    <f:ajax execute="@form" render="panelArea" />
+                </h:commandButton>
+            </h:form>
+            
+            
 
-        <h:commandButton value="Send" class="button" action="null">
-            <f:ajax execute="@form" render="panelArea messages" />
-        </h:commandButton>
-        </h:form>
+            <h:panelGroup id="panelArea">
+                
+                
+                
+                <h:panelGroup rendered="#{indexBean.selectedOption == 1}">
+                    <h:form id="listForm">
+                        <h:commandButton value="Load" class="button" action="#{indexBean.loadDevices}"/>
+                        <br/><br/>
+                        <h:dataTable id="get" value="#{indexBean.devices}" var="d" border="1" rendered="#{not empty indexBean.devices}">
+                            <h:column><f:facet name="header">ID</f:facet>#{d.deviceId}</h:column>
+                            <h:column><f:facet name="header">Brand</f:facet>#{d.brand}</h:column>
+                            <h:column><f:facet name="header">Model</f:facet>#{d.model}</h:column>
+                            <h:column><f:facet name="header">Serial</f:facet>#{d.serialNumber}</h:column>
+                        </h:dataTable>
+                    </h:form>
+                </h:panelGroup>
+                
+                <h:panelGroup rendered="#{indexBean.selectedOption == 2}">
+                    <h:form id="createForm">
+                        <h3>Create Device</h3>
+                        <label>Brand:</label>
+                        <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
+                        <label>Model:</label>
+                        <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
+                        <label>Serial nº:</label>
+                        <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
 
-        <h:form>
-            <h:messages id="messages" globalOnly="false" />
-        </h:form>
+                        <h:commandButton value="Create" action="#{indexBean.createDevice}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
 
-        <h:panelGroup id="panelArea">
+                <h:panelGroup rendered="#{indexBean.selectedOption == 3}">
+                    <h:form id="updateForm">
+                        <h3>Update Device</h3>
+                        <label>ID</label>
+                        <h:inputText id="cid" value="#{indexBean.webDevice.deviceId}" /><br/>
+                        <label>Brand:</label>
+                        <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
+                        <label>Model:</label>
+                        <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
+                        <label>Serial nº:</label>
+                        <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
 
-            <h:panelGroup rendered="#{indexBean.selectedOption == 1}">
-                <h:form id="listForm">
-                    <h:commandButton value="Load" class="button" action="#{indexBean.loadDevices}"/>
-                    <br/><br/>
-                    <h:dataTable id="get" value="#{indexBean.devices}" var="d" border="1" rendered="#{not empty indexBean.devices}">
-                        <h:column><f:facet name="header">ID</f:facet>#{d.deviceId}</h:column>
-                        <h:column><f:facet name="header">Brand</f:facet>#{d.brand}</h:column>
-                        <h:column><f:facet name="header">Model</f:facet>#{d.model}</h:column>
-                        <h:column><f:facet name="header">Serial</f:facet>#{d.serialNumber}</h:column>
-                    </h:dataTable>
+                        <h:commandButton value="Update" action="#{indexBean.updateDevice}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{indexBean.selectedOption == 4}">
+                    <h:form id="deleteForm">
+                        <h3>Delete Device</h3>
+                        <label>ID</label>
+                        <h:inputText id="did" value="#{indexBean.deleteId}"/><br/>
+
+                        <h:commandButton value="Delete" action="#{indexBean.deleteDevice()}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton> 
+                    </h:form>
+                
+                </h:panelGroup>
+                
+                <h:form>
+                    <h:messages id="messagesForm" globalOnly="false" />
                 </h:form>
-            </h:panelGroup>
-
-            <h:panelGroup rendered="#{indexBean.selectedOption == 2}">
-                <h:form id="createForm">
-                    <h3>Create Device</h3>
-                    <label>Brand:</label>
-                    <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
-                    <label>Model:</label>
-                    <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
-                    <label>Serial nº:</label>
-                    <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
-
-                    <h:commandButton value="Create" action="#{indexBean.createDevice}">
-                        <f:ajax execute="@form" render="messages panelArea" />
-                    </h:commandButton>
-                </h:form>
+                
             </h:panelGroup>
             
-            
-            <h:panelGroup rendered="#{indexBean.selectedOption == 3}">
-                <h:form id="updateForm">
-                    <h3>Update Device</h3>
-                    <label>ID</label>
-                    <h:inputText id="cid" value="#{indexBean.webDevice.deviceId}" /><br/>
-                    <label>Brand:</label>
-                    <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
-                    <label>Model:</label>
-                    <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
-                    <label>Serial nº:</label>
-                    <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
-
-                    <h:commandButton value="Update" action="#{indexBean.updateDevice}">
-                        <f:ajax execute="@form" render="messages panelArea" />
-                    </h:commandButton>
-                </h:form>
-            </h:panelGroup>
-            
-            <h:panelGroup rendered="#{indexBean.selectedOption == 4}">
-                <h:form id="deleteForm">
-                    <h3>Delete Device</h3>
-                    <label>ID</label>
-                    <h:inputText id="did" value="#{indexBean.deleteId}"/><br/>
-                    
-                    <h:commandButton value="Delete" action="#{indexBean.deleteDevice()}">
-                        <f:ajax execute="@form" render="messages panelArea" />
-                    </h:commandButton> 
-
-                </h:form>
-            </h:panelGroup>
-            
-            
-        </h:panelGroup>
-            
-            
-           
-        
         </div>
     </h:body>
     

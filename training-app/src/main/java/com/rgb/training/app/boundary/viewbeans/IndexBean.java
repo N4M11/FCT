@@ -8,6 +8,7 @@ import com.rgb.training.app.data.repository.DeviceJTARepository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.json.bind.Jsonb;
@@ -62,36 +63,39 @@ public class IndexBean implements Serializable {
      public void createDevice() {
         try {
             deviceRepo.create(webDevice);
-            message = "Device created";
-            done = true;
-            
+             FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Device created", null));
+        
         } catch (Exception ex) {
-            message = "Error creating Device " + ex.getMessage();
-            done = false;
+             FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
+                    "Error creating Device " + ex.getMessage(), null));
         }
     }
 
     public void updateDevice() {
         try {
             deviceRepo.update(webDevice);
-            message = "Device updated.";
-            done = true;
-            if (option == 1) loadDevices();
+            FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Device updated", null));
+            
         } catch (Exception ex) {
-            message = "Error: " + ex.getMessage();
-            done = false;
+            FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error: " + ex.getMessage(), null));
+   
         }
     }
 
     public void deleteDevice() {
         try {
             deviceRepo.delete(deleteId);
-            message = "Device deleted";
-            done = true;
-            if (option == 1) loadDevices();
+             FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Device deleted", null));
+            
         } catch (Exception ex) {
-            message = "Error: " + ex.getMessage();
-            done = false;
+             FacesContext.getCurrentInstance()
+            .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error: " + ex.getMessage(), null));
+    
         }
     }
 
