@@ -97,8 +97,24 @@
                             <h:column><f:facet name="header">Brand</f:facet>#{d.brand}</h:column>
                             <h:column><f:facet name="header">Model</f:facet>#{d.model}</h:column>
                             <h:column><f:facet name="header">Serial</f:facet>#{d.serialNumber}</h:column>
-                            
+
+                           <h:column>
+                                <f:facet name="header">Edit</f:facet>
+                                <h:commandLink action="#{indexBean.prepareEdit(d)}">
+                                    Edit
+                                    <f:ajax execute="@this" render=":panelArea :messagesForm:messages" />
+                                </h:commandLink>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Delete</f:facet>
+                                <h:commandButton value="Eliminar" action="#{indexBean.deleteDevice}">
+                                    <f:setPropertyActionListener target="#{indexBean.deleteId}" value="#{d.deviceId}" />
+                                    <f:ajax execute="@form" render=":get :messagesForm:messages" />
+                                </h:commandButton>
+                            </h:column>
                         </h:dataTable>
+
                     </h:form>
                 </h:panelGroup>
                 

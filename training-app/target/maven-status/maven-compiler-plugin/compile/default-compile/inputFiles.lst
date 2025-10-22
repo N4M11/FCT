@@ -37,7 +37,6 @@
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/common/odoo/model/OdooAccount.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/config/JakartaRestConfiguration.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/controller/device/Java2OdooSyncController.java
-/home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/viewbeans/NotFoundBean.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/rest/DeviceJTARepositoryResource.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/data/model/MyTable.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/controller/mytable/Odoo2JavaSyncController.java

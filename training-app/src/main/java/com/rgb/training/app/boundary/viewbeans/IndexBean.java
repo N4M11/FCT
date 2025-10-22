@@ -26,11 +26,6 @@ import java.util.List;
 //funcions: get, post, delete
 //get: llista
 //post(onj classe) i delete: msg de ok/error
-/**
-  {
-    "brand": "Sony",
-    "deviceId": 11,
-*/
 @Named 
 @SessionScoped
 public class IndexBean implements Serializable {
@@ -57,8 +52,7 @@ public class IndexBean implements Serializable {
     public List<Device> getDevices() {
         return this.devices;
     }
-    
-   
+      
     
      public void createDevice() {
         try {
@@ -98,7 +92,11 @@ public class IndexBean implements Serializable {
     
         }
     }
-
+    
+    public void prepareEdit(Device d) {
+        this.webDevice = d;
+        this.selectedOption = 3;
+    }
 
     public int getSelectedOption() { return selectedOption; }
     public void setSelectedOption(int selectedOption) { this.selectedOption = selectedOption; }

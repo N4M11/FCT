@@ -11,7 +11,6 @@ package com.rgb.training.app.common.rest;
  */
 
 import com.rgb.training.app.boundary.viewbeans.LoginBean;
-import static com.sun.xml.ws.spi.db.BindingContextFactory.LOGGER;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
@@ -37,7 +36,6 @@ public class LoginFilter implements Filter{
     
     @Override
     public void destroy() {
-      // close resources
     }
 
     @Override
@@ -52,7 +50,6 @@ public class LoginFilter implements Filter{
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
 
-        // managed bean name is exactly the session attribute name
         String contextPath = req.getContextPath();
         String requestURI = req.getRequestURI();
         
