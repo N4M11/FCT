@@ -6,6 +6,8 @@
     <h:head>
         <title>Main Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
         <style>
             .header{
                 display: flex;
@@ -31,6 +33,7 @@
                 margin: auto;
             }
             body{
+                padding: 40px;
                 background-color: #385F71;
                 font-family: Elvetica,Arial;
             }
@@ -68,7 +71,7 @@
         </div>
         <br/><br/>
         
-        <div class="container">
+        <div class="container-fluid">
             <h:form id="controlForm">
                 <h:selectOneMenu id="opt" value="#{indexBean.selectedOption}">
                     <f:selectItem itemValue="#{0}" itemLabel="-- SELECT --" />
@@ -83,16 +86,13 @@
             </h:form>
             
             
-
             <h:panelGroup id="panelArea">
-                
-                
                 
                 <h:panelGroup rendered="#{indexBean.selectedOption == 1}">
                     <h:form id="listForm">
                         <h:commandButton value="Load" class="button" action="#{indexBean.loadDevices}"/>
                         <br/><br/>
-                        <h:dataTable id="get" value="#{indexBean.devices}" var="d" border="1" rendered="#{not empty indexBean.devices}">
+                        <h:dataTable class="table table-success table-striped" style="padding: 30px;" value="#{indexBean.devices}" var="d" border="1" rendered="#{not empty indexBean.devices}">
                             <h:column><f:facet name="header">ID</f:facet>#{d.deviceId}</h:column>
                             <h:column><f:facet name="header">Brand</f:facet>#{d.brand}</h:column>
                             <h:column><f:facet name="header">Model</f:facet>#{d.model}</h:column>
@@ -108,7 +108,8 @@
 
                             <h:column>
                                 <f:facet name="header">Delete</f:facet>
-                                <h:commandButton value="Eliminar" action="#{indexBean.deleteDevice}">
+                                <h:commandButton value="Delete" 
+                                                 action="#{indexBean.deleteDevice}">
                                     <f:setPropertyActionListener target="#{indexBean.deleteId}" value="#{d.deviceId}" />
                                     <f:ajax execute="@form" render=":get :messagesForm:messages" />
                                 </h:commandButton>
