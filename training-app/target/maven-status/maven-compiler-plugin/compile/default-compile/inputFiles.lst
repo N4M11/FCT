@@ -12,6 +12,7 @@
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/common/utils/DataTypeParser.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/common/odoo/model/OdooContact.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/controller/device/Odoo2JavaSyncController.java
+/home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/common/rest/LoginFilter.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/rest/service/AbstractFacade.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/app/ProgrammaticTimer.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/rest/MyTableJTARepositoryResource.java
@@ -36,6 +37,7 @@
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/common/odoo/model/OdooAccount.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/config/JakartaRestConfiguration.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/controller/device/Java2OdooSyncController.java
+/home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/viewbeans/NotFoundBean.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/boundary/rest/DeviceJTARepositoryResource.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/data/model/MyTable.java
 /home/nami/Descargas/training-app-250617/training-app/src/main/java/com/rgb/training/app/controller/mytable/Odoo2JavaSyncController.java

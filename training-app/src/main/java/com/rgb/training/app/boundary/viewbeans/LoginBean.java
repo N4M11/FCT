@@ -6,9 +6,12 @@ package com.rgb.training.app.boundary.viewbeans;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import java.io.IOException;
 import java.io.Serializable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  *
  * @author nami
@@ -16,6 +19,13 @@ import java.io.Serializable;
 @Named 
 @SessionScoped
 public class LoginBean implements Serializable {
+    
+    private static final long serialVersionUID = 1102025;
+    private static final Logger LOGGER =
+      LoggerFactory.getLogger(LoginBean.class);
+    
+    public static final String HOME_PAGE_REDIRECT ="index?faces-redirect=true";
+    public static final String LOGOUT_PAGE_REDIRECT ="login?faces-redirect=true";
 
     private String username;
     private String password;
@@ -24,25 +34,26 @@ public class LoginBean implements Serializable {
 
     private static final String ADMIN_USER = "admin";
     private static final String ADMIN_PASS = "admin";
-    private static final long serialVersionUID = 1102025;
 
     public String login() {
         if (ADMIN_USER.equals(this.username) && ADMIN_PASS.equals(this.password)) {
+            
+            LOGGER.info("login successful for '{}'", username);
             logged=true;
-            return "index?faces-redirect=true";
+            return HOME_PAGE_REDIRECT;
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
-                new jakarta.faces.application.FacesMessage(
-                    jakarta.faces.application.FacesMessage.SEVERITY_ERROR,
-                    "Login error",
-                    null));
+                new FacesMessage(FacesMessage.SEVERITY_WARN, "Login error",
+              "Invalid or unknown user."));
             return null;
         }
     }
 
     public String logout() {
+        
+        LOGGER.debug("invalidating session for '{}'", username);
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "login?faces-redirect=true";
+        return LOGOUT_PAGE_REDIRECT;
     }
     
      public void validate() {
@@ -57,15 +68,25 @@ public class LoginBean implements Serializable {
     }
 
     public String getUsername() { return this.username; }
-    public boolean getlogin() { 
-  
+    public boolean islogged() { 
+        
         return this.logged; 
     }
+    
     public void setNotLogged(){
         this.logged=false;
     }
     public void setUsername(String username) { this.username = username; }
     public String getPassword() { return this.password; }
     public void setPassword(String password) { this.password = password; }
+    
+
+      public String isLoggedInForwardHome() {
+        if (islogged()) {
+          return HOME_PAGE_REDIRECT;
+        }
+
+        return null;
+      }
 }
 

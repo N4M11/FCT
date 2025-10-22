@@ -10,6 +10,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     
     <h:head>
         <title>Login</title>
+        <f:metadata>
+            <f:viewAction action="#{loginBean.isLoggedInForwardHome()}" />
+        </f:metadata>
         <style>
             .form-group{
                 border: 1px black;

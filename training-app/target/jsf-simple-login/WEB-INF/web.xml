@@ -35,4 +35,11 @@
     <welcome-file-list>
         <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/notfound.xhtml</location>
+    </error-page>
+
+    
 </web-app>

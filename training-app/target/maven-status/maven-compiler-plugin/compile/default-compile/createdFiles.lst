@@ -18,6 +18,8 @@ com/rgb/training/app/boundary/rest/OdooIntegrationResource.class
 com/rgb/training/app/data/repository/DeviceJTARepository.class
 com/rgb/training/app/boundary/viewbeans/TestViewBean.class
 com/rgb/training/app/boundary/rest/service/AbstractFacade.class
+com/rgb/training/app/boundary/viewbeans/NotFoundBean.class
+com/rgb/training/app/common/rest/LoginFilter.class
 com/rgb/training/app/common/database/PgJpaManagerFactory.class
 com/rgb/training/app/common/rest/SecurityKeyAuth.class
 com/rgb/training/app/data/model/Device.class
