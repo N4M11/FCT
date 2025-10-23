@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
+        <title>Login</title>
+        <f:metadata>
+            <f:viewAction action="#{loginBean.isLoggedInForwardHome()}" />
+        </f:metadata>
+        <style>
+            .form-group{
+                border: 1px black;
+                font-weight: bold;
+                color: whitesmoke;
+                padding: 8px;
+            }
+            body{
+                background-color: #F5F0F6;
+                font-family: Elvetica,Arial;
+            }
+            .login-container{
+                box-shadow: 10px 10px 8px #888888;
+                display:flex;
+                align-items: center;
+                width: 400px;
+                margin: 100px auto;
+                padding: 30px;
+                border-radius: 15px;
+                background-color: #385F71 ;
+                opacity: 0.9;
+            }
+            .login_button{
+                margin-top: 4px;
+                padding: 6px;
+                border:0px;
+                background-color: #96b4e7;
+                color: black;
+                margin-left: 8px;
+                font-weight: bold;
+                border-radius: 5px;
+
+            }
+            .login_button:hover{
+                background-color: #F5F0F6;
+                color: #2B4162;
+                cursor: pointer;
+                font-weight: bolder;
+            }
+            
+            
+        </style>
+    </h:head>
+    
+    <h:body>
+        
+        <div class="login-container">
+
+            <h:messages errorClass="error" globalOnly="true"/>
+
+            <h:form>
+                <div class="form-group">
+                    <h:outputLabel for="username" value="User" style="margin-right: 10px"/>
+                    <h:inputText id="username" value="#{loginBean.username}"
+                                 required="true" requiredMessage="User required"/>
+                </div>
+
+                <div class="form-group">
+                    <h:outputLabel for="password" value="Password" style="margin-right: 10px"/>
+                    <h:inputSecret id="password" value="#{loginBean.password}"
+                                   required="true" requiredMessage="Password required"/>
+                </div>
+                <h:commandButton class="login_button" value="LOGIN" action="#{loginBean.login}" />
+
+
+
+            </h:form>
+        </div>
+    </h:body>
+</html>

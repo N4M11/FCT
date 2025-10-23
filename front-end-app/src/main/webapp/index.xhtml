@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Main Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+              integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
+        <style>
+            .header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .button{
+                padding: 7px;
+                border:0px;
+                background-color: #F5F0F6;
+                color: #2B4162;
+                border-radius: 5px;
+            }
+            .button:hover{
+                cursor: pointer;
+                font-weight: bold;
+
+            }
+            h1{
+                color: whitesmoke;
+                text-align: center;
+                padding: 30px;
+                margin: auto;
+            }
+            body{
+                padding: 40px;
+                background-color: #385F71;
+                font-family: Elvetica,Arial;
+            }
+            #createForm,#updateForm{
+                border: 1px black;
+                font-weight: bold;
+                color: whitesmoke;
+                padding: 8px;
+            }
+            
+            
+            
+        </style>
+    </h:head>
+    <h:body>
+        
+        <f:event type="preRenderView" listener="#{loginBean.validate()}" />
+        <div class="header">
+            <h1>TRAINING APP</h1>
+            <h:form >
+                <h:commandButton class="button" value="Logout" action="#{loginBean.logout()}" />
+            </h:form>
+        </div>
+        <br/><br/>
+        
+        <div class="container-fluid">
+            <h:form id="controlForm">
+                <h:selectOneMenu id="opt" value="#{indexBean.selectedOption}">
+                    <f:selectItem itemValue="#{0}" itemLabel="-- SELECT --" />
+                    <f:selectItem itemValue="#{1}" itemLabel="Get" />
+                    <f:selectItem itemValue="#{2}" itemLabel="Create" />
+                    <f:selectItem itemValue="#{3}" itemLabel="Update" />
+                    <f:selectItem itemValue="#{4}" itemLabel="Delete" />
+                </h:selectOneMenu>
+                <h:commandButton value="Send" class="button" style="margin-left:10px;">
+                    <f:ajax execute="@form" render="panelArea" />
+                </h:commandButton>
+            </h:form>
+            
+            
+            <h:panelGroup id="panelArea">
+                
+                <h:panelGroup rendered="#{indexBean.selectedOption == 1}">
+                    <h:form id="listForm">
+                        <h:commandButton value="Load" class="button" action="#{indexBean.loadDevices}"/>
+                        <br/><br/>
+                        <h:dataTable class="table table-success table-striped" style="padding: 30px;" value="#{indexBean.devices}" var="d" border="1" rendered="#{not empty indexBean.devices}">
+                            <h:column><f:facet name="header">ID</f:facet>#{d.deviceId}</h:column>
+                            <h:column><f:facet name="header">Brand</f:facet>#{d.brand}</h:column>
+                            <h:column><f:facet name="header">Model</f:facet>#{d.model}</h:column>
+                            <h:column><f:facet name="header">Serial</f:facet>#{d.serialNumber}</h:column>
+
+                           <h:column>
+                                <f:facet name="header">Edit</f:facet>
+                                <h:commandLink action="#{indexBean.prepareEdit(d)}">
+                                    Edit
+                                    <f:ajax execute="@this" render=":panelArea :messagesForm:messages" />
+                                </h:commandLink>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Delete</f:facet>
+                                <h:commandButton value="Delete" class="btn btn-outline-danger"
+                                                 action="#{indexBean.deleteDevice}">
+                                    <f:setPropertyActionListener target="#{indexBean.deleteId}" value="#{d.deviceId}" />
+                                    <f:ajax execute="@form" render=":get :messagesForm:messages" />
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+
+                    </h:form>
+                </h:panelGroup>
+                
+                <h:panelGroup rendered="#{indexBean.selectedOption == 2}">
+                    <h:form id="createForm">
+                        <h3>Create Device</h3>
+                        <label style="margin-right: 10px;margin-bottom: 10px">Brand: </label>
+                        <h:inputText value="#{indexBean.webDevice.brand}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Model:</label>
+                        <h:inputText value="#{indexBean.webDevice.model}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Serial nº:</label>
+                        <h:inputText  value="#{indexBean.webDevice.serialNumber}" /><br/>
+
+                        <h:commandButton value="Create" class="button" action="#{indexBean.createDevice}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{indexBean.selectedOption == 3}">
+                    <h:form id="updateForm">
+                        <h3>Update Device</h3>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">ID</label>
+                        <h:inputText id="cid" value="#{indexBean.webDevice.deviceId}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Brand:</label>
+                        <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Model:</label>
+                        <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Serial nº:</label>
+                        <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
+
+                        <h:commandButton value="Update" action="#{indexBean.updateDevice}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{indexBean.selectedOption == 4}">
+                    <h:form id="deleteForm">
+                        <h3>Delete Device</h3>
+                        <label>ID</label>
+                        <h:inputText id="did" value="#{indexBean.deleteId}"/><br/>
+
+                        <h:commandButton value="Delete" action="#{indexBean.deleteDevice()}">
+                            <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
+                        </h:commandButton> 
+                    </h:form>
+                
+                </h:panelGroup>
+                
+                <h:form>
+                    <h:messages id="messagesForm" globalOnly="false" />
+                </h:form>
+                
+            </h:panelGroup>
+            
+        </div>
+    </h:body>
+    
+</html>
+
+<!--//form amb desplegable: get, post, delete
+//get: llista
+//post i delete: msg de ok/error
+//botón que ejecute funciones-->
