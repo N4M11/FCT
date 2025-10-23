@@ -30,19 +30,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 box-shadow: 10px 10px 8px #888888;
                 display:flex;
                 align-items: center;
-                width: 300px;
+                width: 400px;
                 margin: 100px auto;
-                padding: 20px;
+                padding: 30px;
                 border-radius: 15px;
                 background-color: #385F71 ;
                 opacity: 0.9;
             }
             .login_button{
-                padding: 7px;
+                margin-top: 4px;
+                padding: 6px;
                 border:0px;
-                background-color: #2B4162;
-                color: #F5F0F6;
+                background-color: #96b4e7;
+                color: black;
                 margin-left: 8px;
+                font-weight: bold;
                 border-radius: 5px;
 
             }
@@ -50,8 +52,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 background-color: #F5F0F6;
                 color: #2B4162;
                 cursor: pointer;
-                font-weight: bold;
-
+                font-weight: bolder;
             }
             
             
@@ -66,13 +67,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
             <h:form>
                 <div class="form-group">
-                    <h:outputLabel for="username" value="User  "/>
+                    <h:outputLabel for="username" value="User" style="margin-right: 10px"/>
                     <h:inputText id="username" value="#{loginBean.username}"
                                  required="true" requiredMessage="User required"/>
                 </div>
 
                 <div class="form-group">
-                    <h:outputLabel for="password" value="Password  "/>
+                    <h:outputLabel for="password" value="Password" style="margin-right: 10px"/>
                     <h:inputSecret id="password" value="#{loginBean.password}"
                                    required="true" requiredMessage="Password required"/>
                 </div>

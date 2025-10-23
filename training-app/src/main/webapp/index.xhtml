@@ -18,7 +18,6 @@
                 border:0px;
                 background-color: #F5F0F6;
                 color: #2B4162;
-                margin-left: 8px;
                 border-radius: 5px;
             }
             .button:hover{
@@ -37,27 +36,15 @@
                 background-color: #385F71;
                 font-family: Elvetica,Arial;
             }
-            .container{
-                display:flex;
-                align-items: center;
-                margin-left: 700px ;
-                padding: 20px;
-                border-radius: 15px;
-                opacity: 0.9;
-                width: 700px;
-
+            #createForm,#updateForm{
+                border: 1px black;
+                font-weight: bold;
+                color: whitesmoke;
+                padding: 8px;
             }
-            pre{
-                background:#f8f8f8;
-                padding:10px;
-                border:1px solid #ddd;
-            }
-            devicesTable{
-                border-collapse: collapse;
-                border: 5px #F5F0F6;
-                color:  #F5F0F6;
-                
-            }
+            
+            
+            
         </style>
     </h:head>
     <h:body>
@@ -80,7 +67,7 @@
                     <f:selectItem itemValue="#{3}" itemLabel="Update" />
                     <f:selectItem itemValue="#{4}" itemLabel="Delete" />
                 </h:selectOneMenu>
-                <h:commandButton value="Send" class="button">
+                <h:commandButton value="Send" class="button" style="margin-left:10px;">
                     <f:ajax execute="@form" render="panelArea" />
                 </h:commandButton>
             </h:form>
@@ -108,7 +95,7 @@
 
                             <h:column>
                                 <f:facet name="header">Delete</f:facet>
-                                <h:commandButton value="Delete" 
+                                <h:commandButton value="Delete" class="btn btn-outline-danger"
                                                  action="#{indexBean.deleteDevice}">
                                     <f:setPropertyActionListener target="#{indexBean.deleteId}" value="#{d.deviceId}" />
                                     <f:ajax execute="@form" render=":get :messagesForm:messages" />
@@ -122,14 +109,16 @@
                 <h:panelGroup rendered="#{indexBean.selectedOption == 2}">
                     <h:form id="createForm">
                         <h3>Create Device</h3>
-                        <label>Brand:</label>
-                        <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
-                        <label>Model:</label>
-                        <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
-                        <label>Serial nº:</label>
-                        <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
+                        <label style="margin-right: 10px;margin-bottom: 10px">Brand: </label>
+                        <h:inputText value="#{indexBean.webDevice.brand}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Model:</label>
+                        <h:inputText value="#{indexBean.webDevice.model}" /><br/>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Serial nº:</label>
+                        <h:inputText  value="#{indexBean.webDevice.serialNumber}" /><br/>
 
-                        <h:commandButton value="Create" action="#{indexBean.createDevice}">
+                        <h:commandButton value="Create" class="button" action="#{indexBean.createDevice}">
                             <f:ajax execute="@form" render="panelArea :messagesForm:messages" />
                         </h:commandButton>
                     </h:form>
@@ -138,13 +127,17 @@
                 <h:panelGroup rendered="#{indexBean.selectedOption == 3}">
                     <h:form id="updateForm">
                         <h3>Update Device</h3>
-                        <label>ID</label>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">ID</label>
                         <h:inputText id="cid" value="#{indexBean.webDevice.deviceId}" /><br/>
-                        <label>Brand:</label>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Brand:</label>
                         <h:inputText id="cbrand" value="#{indexBean.webDevice.brand}" /><br/>
-                        <label>Model:</label>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Model:</label>
                         <h:inputText id="cmodel" value="#{indexBean.webDevice.model}" /><br/>
-                        <label>Serial nº:</label>
+                        
+                        <label style="margin-right: 10px;margin-bottom: 10px">Serial nº:</label>
                         <h:inputText id="cserial" value="#{indexBean.webDevice.serialNumber}" /><br/>
 
                         <h:commandButton value="Update" action="#{indexBean.updateDevice}">
