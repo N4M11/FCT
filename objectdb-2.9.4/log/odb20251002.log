@@ -1,0 +1,66 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 10:47:27 #1 store] 
+Database '/tmp/devices.odb' is opened by 17247@user-OptiPlex-3020
+
+[2025-10-02 10:47:27 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 10:48:31 #3 store] 
+Database '/tmp/devices.odb' is closed by 17247@user-OptiPlex-3020
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 10:48:54 #1 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is opened by 17397@user-OptiPlex-3020
+
+[2025-10-02 10:48:54 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 10:51:48 #3 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is closed by 17397@user-OptiPlex-3020
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 11:10:31 #1 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is opened by 18945@user-OptiPlex-3020
+
+[2025-10-02 11:10:31 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 11:10:37 #3 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is closed by 18945@user-OptiPlex-3020
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 11:24:28 #1 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is opened by 20436@user-OptiPlex-3020
+
+[2025-10-02 11:24:28 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 11:24:48 #3 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is closed by 20436@user-OptiPlex-3020
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 11:25:28 #1 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is opened by 20577@user-OptiPlex-3020
+
+[2025-10-02 11:25:28 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 11:27:18 #3 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is closed by 20577@user-OptiPlex-3020
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-02 11:43:59 #1 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is opened by 21924@user-OptiPlex-3020
+
+[2025-10-02 11:43:59 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-02 11:55:05 #3 store] 
+Database '/home/nami/Descargas/training-app-250617/training-app/devices.odb' is closed by 21924@user-OptiPlex-3020
+

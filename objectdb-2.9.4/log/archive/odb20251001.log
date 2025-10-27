@@ -1,0 +1,20 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2025-10-01 12:29:01 #1 store] 
+Database '/home/nami/Descargas/objectdb-2.9.4/db/point.odb' is opened by 22387@user-OptiPlex-3020
+
+[2025-10-01 12:29:01 #2 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-01 12:31:21 #3 store] 
+Database '/home/nami/Descargas/objectdb-2.9.4/db/point.odb' is closed by 22387@user-OptiPlex-3020
+
+[2025-10-01 12:31:21 #4 store] 
+Database '/home/nami/Descargas/objectdb-2.9.4/db/world.odb' is opened by 22387@user-OptiPlex-3020
+
+[2025-10-01 12:31:21 #5 store] 
+Configuration path: /home/nami/Descargas/objectdb-2.9.4/objectdb.conf
+
+[2025-10-01 12:40:53 #6 store] 
+Database '/home/nami/Descargas/objectdb-2.9.4/db/world.odb' is closed by 22387@user-OptiPlex-3020
+

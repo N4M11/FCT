@@ -13,8 +13,8 @@
             30
         </session-timeout>
     </session-config>
-    <!---->
-    <context-param>
+    
+    <!--<context-param>
         <param-name>jakarta.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
@@ -29,7 +29,6 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!---->
 
     
     <welcome-file-list>
@@ -40,6 +39,7 @@
         <error-code>404</error-code>
         <location>/notfound.xhtml</location>
     </error-page>
+        -->
 
     
 </web-app>
