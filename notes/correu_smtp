@@ -1,0 +1,6 @@
+Configuración para clientes SMTP
+servidor: 51.195.41.195
+puerto: 2525
+
+posar aixo a servidores de correo de salida
+cambiar la prioritat

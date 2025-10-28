@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem
+        id="workshop_menu_root"
+        name="Repair Workshop"
+        web_icon="workshop,static/description/icon.png"
+        sequence="1"/>
+
+
+    <menuitem
+        id="reparations"
+        name="Reparations"
+        parent="workshop_menu_root"
+        action="workshop_action"
+        sequence="1"
+    />
+
+    <menuitem
+        id="settings_menu"
+        name="Settings"
+        parent="workshop_menu_root"
+        sequence="2"
+    />
+
+    <menuitem
+        id="device_types"
+        name="Devices types"
+        parent="settings_menu"
+        action="device_type_action"
+        sequence="1"
+    />
+
+    <menuitem
+        id="reparation_tags"
+        name="Tags"
+        parent="settings_menu"
+        action="reparation_tag_action"
+        sequence="2"
+    />
+
+    <menuitem
+        id="workshop_administration"
+        name="Administration"
+        parent="workshop_menu_root"
+        sequence="3"
+    />
+
+    <menuitem
+        id="workshop_invoices"
+        name="Invoices"
+        parent="workshop_administration"
+        action="workshop_invoices_action"
+        sequence="1"
+    />
+
+     <menuitem
+        id="workshop_clients"
+        name="Clients"
+        parent="workshop_administration"
+        action="workshop_clients_action"
+        sequence="2"
+    />
+    <menuitem
+        id="workshop_products"
+        name="Material"
+        parent="workshop_administration"
+        action="workshop_product_action"
+        sequence="2"
+    />
+
+
+
+
+</odoo>

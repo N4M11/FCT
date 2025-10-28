@@ -1,0 +1,9 @@
+psql -d template1 -c "CREATE DATABASE \"odoo16\" TEMPLATE template0 LC_COLLATE 'C'"
+
+
+
+
+./odoo-bin -d <base de datos> -i base --without-demo=all --stop-after-init
+
+
+./odoo-bin -d <base de datos> --load-language es_ES -i base --without-demo=all --stop-after-init

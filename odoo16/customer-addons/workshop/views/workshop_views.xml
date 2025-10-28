@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="workshop_action" model="ir.actions.act_window">
+        <field name="name">Reparations</field>
+        <field name="res_model">workshop.reparation</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="context">{'search_default_available':True}</field>
+    </record>
+
+    <!--REPARATIONS TREE-->
+    <record id="workshop_reparation_view_tree" model="ir.ui.view">
+        <field name="name">workshop.reparation.view.tree</field>
+        <field name="model">workshop.reparation</field>
+        <field name="arch" type="xml">
+            <tree string="record"
+                  decoration-danger="(today &gt; expected_completion_date)"
+                  decoration-success="(status == 'repaired') or (status == 'delivered')"
+                  decoration-warning="(status == 'repairing')"
+                  decoration-bf="(status == 'delivered')" decoration-muted="(status == 'canceled')">
+                <field name="today" invisible="1"/>
+                <field name="expected_completion_date" invisible="1"/>
+
+                <field name="status" invisible="1"/>
+                <field name="name"/>
+
+                <field name="client"/>
+
+                <field name="reparation_tag_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="activity_ids" widget="list_activity"/>
+
+                <field name="received_date"/>
+                <field name="expected_completion_date" string="Due to" widget="remaining_days" attrs="{'invisible':[('status','not in',('new','repairing'))]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--REPARATIONS FORM-->
+    <record id="workshop_reparation_view_form" model="ir.ui.view">
+        <field name="name">workshop.reparation.view.form</field>
+        <field name="model">workshop.reparation</field>
+        <field name="arch" type="xml">
+            <form string="Reparation" create="1" delete="1" write="1" edit="1">
+                <header>
+                    <field name="estate" invisible="1"/>
+
+                    <button class="btn-primary" name="action_repair" type="object" string="Repair"
+                            attrs="{'invisible':[('status', 'not in', ('new'))]}"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            attrs="{'invisible':[('status', 'in', ('canceled','repaired','delivered'))]}"/>
+
+                    <button class="btn-primary" name="action_repaired" type="object" string="Repaired"
+                            attrs="{'invisible':[('status', 'not in', ('repairing'))]}"/>
+                    <button class="btn-primary" name="action_delivered" type="object" string="Delivered"
+                            attrs="{'invisible':[('status', 'not in', ('repaired'))]}"/>
+
+                    <button class="btn-primary" name="action_close" type="object" string="Close"
+                            attrs="{'invisible':['|',('status', 'not in', ('delivered')),('estate','=','closed')]}"/>
+                    <button name="action_reopen" type="object" string="Reopen"
+                            attrs="{'invisible':[('estate', '!=', ('closed'))]}"/>
+
+                    <button class="btn-primary" name="action_invoice" type="object" string="Invoice"
+                            attrs="{'invisible':['|',('estate', '!=', ('closed')),('status','=','canceled')]}"/>
+                    <field name="status" string="" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1 class="oe_title">
+                            <group>
+                                <field name="name"/>
+
+                            </group>
+
+                        </h1>
+                        <field name="reparation_tag_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="client" attrs="{'readonly':[('status','!=','new')]}"/>
+                            <field name="received_date" attrs="{'readonly':[('status','!=','new')]}"/>
+                        </group>
+                        <group>
+                            <field name="problem_description" attrs="{'readonly':[('estate','!=','open')]}"/>
+                            <field name="expected_completion_date" force_save="1" attrs="{'invisible':[('status', 'in', ('canceled','delivered'))],
+                            'readonly':[('expected_completion_date','!=',False)]}"/>
+                            <field name="completion_date" attrs="{'invisible':[('status', 'in', ('new','canceled'))],
+                            'readonly':[('estate','!=','open')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Device">
+                            <field name="device_ids" attrs="{'readonly':[('status', '!=','new')]}" nolabel="1">
+                                <tree>
+                                    <field name="device_type_id"/>
+                                    <field name="brand"/>
+                                    <field name="model"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Reparation" attrs="{'invisible':[('status','=','new')]}">
+                            <group>
+                                <field name="solution_description" attrs="{'readonly':[('estate','!=','open')]}"/>
+                                <field name="observations" attrs="{'readonly':[('estate','!=','open')]}"/>
+                            </group>
+                        </page>
+
+                        <page string="Timesheet" attrs="{'invisible':[('status','=','new')]}">
+                            <field name="timesheet_ids"
+                                   attrs="{'readonly': [('status', 'in', ('new','repaired','canceled','delivered'))]}"
+                                   nolabel="1"/>
+
+                        </page>
+                        <page string="Material" attrs="{'invisible':[('status','=','new')]}">
+
+                            <field name="line_ids" attrs="{'readonly':[('status','!=','repairing')]}">
+                                <tree>
+                                    <field name="product_id"
+                                           domain="[('product_tmpl_id.workshop_product', '=', True)]"/>
+                                    <field name="quantity"/>
+                                    <field name="price" string="Unit price"/>
+                                </tree>
+
+                            </field>
+                        </page>
+
+                        <page string="Other info" attrs="{'invisible':[('status','=','new')]}">
+                            <group>
+                                <field name="technician" attrs="{'readonly':[('estate','!=','open')]}"
+                                       domain="[('job_id', '=', 'Technician')]"/>
+                                <field name="delivery_date" attrs="{'readonly':[('estate','!=','open')]}"/>
+                                <field name="reception_date"
+                                       attrs="{'invisible':[('status','!=','delivered')], 'readonly':[('estate','!=','open')]}"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_follower"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+
+                </div>
+
+            </form>
+        </field>
+    </record>
+    <!--TIMESHEET TREE-->
+    <record id="workshop_reparation_timesheet_view_tree" model="ir.ui.view">
+        <field name="name">workshop.reparation.timesheet.view.tree</field>
+        <field name="model">workshop.reparation.timesheet</field>
+        <field name="arch" type="xml">
+            <tree string="record" editable="bottom">
+
+                <field name="date"/>
+                <field name="description"/>
+                <field name="time" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--SEARCH FILTERS-->
+    <record id="workshop_view_search" model="ir.ui.view">
+        <field name="name">workshop.view.search</field>
+        <field name="model">workshop.reparation</field>
+        <field name="arch" type="xml">
+            <search string="Reparations">
+                <field name="name"/>
+                <field name="received_date"/>
+                <filter string="Available" name="available" domain="[
+                ('status','!=','canceled'),
+                ('estate','=','open')]"/>
+                <filter string="Technician" name="technician" context="{'group_by':'technician'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!--KANBAN VIEW-->
+    <record id="workshop_reparation_view_kanban" model="ir.ui.view">
+        <field name="name">workshop.reparation.view.kanban</field>
+        <field name="model">workshop.reparation</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1" default_group_by="status">
+                <field name="name"/>
+                <field name="status"/>
+                <field name="estate"/>
+                <field name="client"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div>
+                                    Client:
+                                    <field name="client"/>
+                                </div>
+
+
+                            </div>
+                            <strong>
+                                <field name="reparation_tag_id" widget="many2many_tags"
+                                       options="{'color_field': 'color'}"/>
+                            </strong>
+                            <div class="o_kanban_record_bottom">
+
+                                <div class="o_kanban_inline_block">
+                                    <field name="activity_ids" widget="kanban_activity"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="technician" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!--CALENDAR VIEW-->
+    <record id="workshop_reparation_view_calendar" model="ir.ui.view">
+        <field name="name">workshop.reparation.view.calendar</field>
+        <field  name="model">workshop.reparation</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <calendar string="Reparations" create="0" mode="month"
+                      date_start="expected_completion_date" color="name" form_view_id="workshop_reparation_view_form">
+                <field name="name"/>
+                <field name="client"/>
+                <field name="technician"/>
+                <field name="problem_description"/>
+
+<!--               <field name="activity_ids"-->
+<!--                   string="Activities"-->
+<!--                   date_start="date_deadline"-->
+<!--                   color="activity_type_id">-->
+<!--                <field name="activity_type_id" string="Type"/>-->
+<!--                <field name="date_deadline" string="Date Deadline"/>-->
+<!--            </field>-->
+
+            </calendar>
+
+
+        </field>
+
+    </record>
+</odoo>

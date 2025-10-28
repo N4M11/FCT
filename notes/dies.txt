@@ -1,0 +1,30 @@
+2/6 -> 8:05h a 14:05h --> instal·lació de odoo16+postgres
+3/6 -> 8:00 a 14:00 --> instal·lació de odoo17,odoo18 i odoo12
+4/6 -> 8:00 a 14:00 --> Utilizar moduls i començar a crear modul estate_property
+5/6 -> 8:00 a 14:00 --> Inici amb pycharm, crear taula estate_property a la BDD i fitxer permisos
+6/6 -> 8:00 a 14:00 --> Creació de vistes(view+menu) --> poder accedir al modul
+9/6 -> 8:00 a 14:00 --> punt 6 de creació de modul
+10/6 -> 8:00 a 14:00 --> punt 6 acabat(atrributs de camps i ir.ui.view), punt 7 començat(view de tree)
+11/6 -> 8:00 a 14:00 --> punt 7 acabat(custom view de tree i form), punt 8 començat(creació de nous models)
+12/6 -> falta
+13/6 -> falta
+16/6 -> 8:05 a 14:05 --> punt 8 acabat i començat el 9 (computed fields)
+17/6 -> 8:00 a 14:00 --> punt 9 acabat i començat el 10
+18/6 -> 8:00 a 14:00 --> punt 10 i 11
+19/6 -> 8:10 a 10 i 12 a 14:25 --> punt 12 començat (4h)
+20/6 -> 8:08 a 14:08 --> Punt 12
+23/6 -> 8:00 a 14:00 --> punt 12
+24/6 -> 8:00 a 14:00 --> punt 12
+25/6 -> 8:00 a 14:00 --> punt 12
+26/6 -> 8:00 a 14:00 --> punt 13 començat
+27/6 -> 6h --> punt 13 acabat
+30/6 -> 6h --> punt 14 acabat i 15 falta últim punt
+1/7 -> 8:05 a 14:05 -->  estate modul acabat, creació de uml de workshop(nou modul) i començat a crear
+altres dies fins 14:00 -- modul casi acabat
+
+14/7 -> 5:15h
+17/7 -> 5h
+
+----------------------------------------------------------------
+
+18/7 -> 6h --> config entorn netbeans, documentació x afegir mail.activity

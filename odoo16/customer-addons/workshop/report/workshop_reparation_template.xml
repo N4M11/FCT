@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="paperformat_frenchcheck" model="report.paperformat">
+        <field name="name">European A4 low margin</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <template id="report_workshop_reparation">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="company_1" t-value="request.env['res.company'].browse(1)"/>
+                <div class="page">
+                    <div class="mb-4" style="display: flex; align-items: center; gap: 15px; text-align: left;">
+                        <t t-if="company_1.logo">
+                            <img t-att-src="'data:image/png;base64,%s' % company_1.logo.decode('utf-8')"
+                                 style="max-height: 88px;margin-right:8px"/>
+                        </t>
+                        <div>
+                            <strong t-esc="company_1.name"/>
+                            <br/>
+                            <span t-esc="company_1.street"/>
+                            <t t-if="company_1.street2">
+                                <br/>
+                                <span t-esc="company_1.street2"/>
+                            </t>
+                            <br/>
+                            <span t-esc="company_1.zip"/>
+                            <span></span>
+                            <span t-esc="company_1.city"/>
+                            <br/>
+                            <span t-esc="company_1.country_id.name"/>
+                        </div>
+                    </div>
+
+                    <t t-foreach="docs" t-as="o">
+                        <t t-if="o_index > 0">
+                            <div style="page-break-before: always;"/>
+                        </t>
+
+                        <h2 style="font-weight:bold">#
+                            <span t-field="o.name"/>
+                        </h2>
+
+                        <div class="mb-4">
+                            <strong>Technician:</strong>
+                            <span t-field="o.technician.name"/>
+                            <br/>
+                            <strong>Client:</strong>
+                            <span t-field="o.client.name"/>
+                        </div>
+
+                        <div>
+                            <strong>Device:</strong>
+                            <t t-set="devices" t-value="o.mapped('device_ids')"/>
+                            <t t-foreach="devices" t-as="device">
+                                <div>
+                                    <span t-field="device.brand"/>
+                                    <span t-field="device.device_type_id"/>
+                                    <span t-field="device.model"/>
+                                </div>
+                                <span style="text-decoration: underline">Serial number:</span>
+                                <span t-field="device.serial_number"/>
+                                <br/>
+                                <span style="text-decoration: underline">Purchase date:</span>
+                                <span t-field="device.purchase_date" widget="date"/>
+                                <br/>
+                                <br/>
+                            </t>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Problem description</th>
+                                    <th>Solution description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span t-field="o.problem_description"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.solution_description"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <span style="font-size:18pt">Timesheet</span>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="timesheet" t-value="o.mapped('timesheet_ids')"/>
+                                <t t-foreach="timesheet" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.date" widget="date"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.description"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.time" widget="float_time"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <strong>Completion Date:</strong>
+                        <span t-field="o.completion_date" widget="date"/>
+                        <t t-if="o.observations">
+                            <br/>
+                            <strong>Observations:</strong>
+                            <br/>
+                            <span t-field="o.observations"/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_workshop_reparation" model="ir.actions.report">
+        <field name="name">Reparation report</field>
+        <field name="model">workshop.reparation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">workshop.report_workshop_reparation</field>
+        <field name="report_file">workshop.report_workshop_reparation</field>
+        <field name="print_report_name">'Reparation - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="paperformat_frenchcheck"/>
+        <field name="binding_model_id" ref="model_workshop_reparation"/>
+        <field name="binding_type">report</field>
+        <field name="multi">True</field>
+    </record>
+</odoo>

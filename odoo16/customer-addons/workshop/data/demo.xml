@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="product_workshop_reparation" model="product.product">
+            <field name="name">Reparation</field>
+            <field name="default_code">RWS</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+
+            <field name="detailed_type">service</field>
+
+            <field name="standard_price">30</field>
+            <field name="list_price">30</field>
+            <field name="uom_id" ref="uom.product_uom_hour"/>
+            <field name="uom_po_id" ref="uom.product_uom_hour"/>
+        </record>
+    </data>
+</odoo>

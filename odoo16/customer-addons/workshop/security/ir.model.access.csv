@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+workshop.access_workshop_reparations,access_workshop_reparations,workshop.model_workshop_reparation,base.group_user,1,1,1,1
+workshop.access_workshop_reparation_device,access_workshop_reparation_device,workshop.model_workshop_reparation_device,base.group_user,1,1,1,1
+workshop.access_workshop_reparation_device_type,access_workshop_reparation_device_type,workshop.model_workshop_reparation_device_type,base.group_user,1,1,1,1
+workshop.access_workshop_reparation_line,access_workshop_reparation_line,workshop.model_workshop_reparation_line,base.group_user,1,1,1,1
+workshop.access_workshop_reparation_tag,access_workshop_reparation_tag,workshop.model_workshop_reparation_tag,base.group_user,1,1,1,1
+workshop.access_workshop_reparation_timesheet,access_workshop_reparation_timesheet,workshop.model_workshop_reparation_timesheet,base.group_user,1,1,1,1

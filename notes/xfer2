@@ -1,0 +1,2 @@
+objectdb --> x guardar dades internes de la app x ex logs o configuracions, afegir dependencia. només posar lo del pom.xml
+crear nova app x fer de client REST, provar get i post

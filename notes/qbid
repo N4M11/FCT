@@ -1,0 +1,17 @@
+1.1 – Configuración GlassFish + NetBeans
+1.3 – Recursos de red y puertos para la conexión segura
+1.5 – Uso de NetBeans para programar, depurar y desplegar
+
+2.2 – Creación y configuración de bases de datos para Java ↔ Odoo
+2.3 – Persistencia e integridad de datos entre Odoo y Java
+2.5 – Conexión a BBDD con JDBC (constantes y archivos)
+2.6 – Modelos de Odoo en Java para gestionar datos
+2.7 – Verificación de servicios de red cliente-servidor
+
+4.5 – Sincronización manual y programada (procesos en red)
+
+5.1 – Estudio de la funcionalidad de Odoo (ERP)
+5.2 – Configuración de Odoo y su BBDD
+5.3 – Adaptación con conectores y modelos en Java
+5.4 – Sincronización de información garantizando integridad
+5.5 – Desarrollo de components personalitzats (models Java ↔ Odoo)

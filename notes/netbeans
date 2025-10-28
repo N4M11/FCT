@@ -1,0 +1,47 @@
+CADA PROJECTE TE FITXER POM AMB LES DEPENDENCIES, LLIBRERIES Y TAL XL PROJECTE
+
+projecte maven de web application
+
+gup id com.rgb
+trainning-app
+
+-------------------------
+
+
+/boundary --> lo dels serveis web
+/common --> funcions utils que siguin comuns 
+/data --> models i repositoris
+persisten.xml -> connexió a base de dades
+----------------
+utilitzem port http
+/localhost:4848 --> backend de GlassFish
+si volem fer cambis de cinfig aqui^
+-------
+
+glashfish
+config/srver-config/thread-pool-1
+max pool 512 
+
+a networkconfig http1 >http max connections = 250
+
+JDBC
+crear db testdb
+cream taula amb lo del sample del projecte 
+
+glass
+jdbc connection pool new
+name testdb, hem de posar el jar de postgres a glasshish/domains/domain/lib
+
+r type->xdataSource [investigar en que se diferencien tipus de recursos]
+
+postgress
+
+seleccionem tot - user, url i password delete
+a url +/testdb
+
+x saver si var fer clic a ping
+
+posar el pool al persistence -> jdbc/testdb a data source
+
+
+

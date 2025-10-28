@@ -1,0 +1,583 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* workshop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 09:47+0000\n"
+"PO-Revision-Date: 2025-07-16 12:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: workshop
+#: model:ir.actions.report,print_report_name:workshop.action_report_workshop_reparation
+msgid "'Reparation - %s' % (object.name)"
+msgstr ""
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid ""
+"<br/>\n"
+"                                <span style=\"text-decoration: "
+"underline\">Purchase date:</span>"
+msgstr ""
+"<br/>\n"
+"                                <span style=\"text-decoration: "
+"underline\">Fecha de compra</span>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid ""
+"<br/>\n"
+"                            <strong>Client:</strong>"
+msgstr ""
+"<br/>\n"
+"                            <strong>Cliente:</strong>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid ""
+"<br/>\n"
+"                            <strong>Observations:</strong>\n"
+"                            <br/>"
+msgstr ""
+"<br/>\r\n"
+"                            <strong>Observaciones:</strong>\r\n"
+"                            <br/>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "<span style=\"font-size:18pt\">Timesheet</span>"
+msgstr "<span style=\"font-size:18pt\">Parte de horas</span>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "<span style=\"text-decoration: underline\">Serial number:</span>"
+msgstr ""
+"<span style=\"text-decoration: underline\">Número de serie:</span>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "<strong>Completion Date:</strong>"
+msgstr "<strong>Fecha de finalización:</strong>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "<strong>Device:</strong>"
+msgstr "<strong>Dispositivo:</strong>"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "<strong>Technician:</strong>"
+msgstr "<strong>Técnico:</strong>"
+
+#. module: workshop
+#: model:ir.ui.menu,name:workshop.workshop_administration
+msgid "Administration"
+msgstr "Administración"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_view_search
+msgid "Available"
+msgstr "Disponible"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__brand
+msgid "Brand"
+msgstr "Marca"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__status__canceled
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__client
+msgid "Client"
+msgstr "Cliente"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.workshop_clients_action
+#: model:ir.ui.menu,name:workshop.workshop_clients
+msgid "Clients"
+msgstr "Clientes"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__estate__closed
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__color
+msgid "Color"
+msgstr "Color"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__completion_date
+msgid "Completion Date"
+msgstr "Fecha finalización"
+
+#. module: workshop
+#: model:ir.model.constraint,message:workshop.constraint_workshop_reparation_check_completion_date
+msgid "Completion date is not set"
+msgstr "Fecha de finalización no introducida"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__cost
+msgid "Cost"
+msgstr "Precio"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__create_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__create_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__create_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__create_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__create_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__create_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__create_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__create_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__create_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__create_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__date
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "Date"
+msgstr "Fecha"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__status__delivered
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Delivered"
+msgstr "Entregado"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__delivery_date
+msgid "Delivery Date"
+msgstr "Fecha de envio"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__description
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "Description"
+msgstr "Descripción"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__device_ids
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Device"
+msgstr "Dispositivo"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__device_type_id
+msgid "Device Type"
+msgstr "Tipo de dispositivo"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__device_type_id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__device_type_id
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_view_search
+msgid "Device type"
+msgstr "Tipo de dispositivo"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation
+msgid "Devices reparations specifications"
+msgstr "Especificaciones de reparación del dispositivo"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation_device
+msgid "Devices to repair"
+msgstr "Dispositivos a reparar"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.device_type_action
+#: model:ir.ui.menu,name:workshop.device_types
+msgid "Devices types"
+msgstr "Tipos de dispositivos"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__display_name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__display_name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__display_name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__display_name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__display_name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__estate
+msgid "Estate"
+msgstr "Estado"
+
+#. module: workshop
+#: model:ir.model.constraint,message:workshop.constraint_workshop_reparation_tag_check_name
+msgid "Existing tag"
+msgstr "Etiqueta existente"
+
+#. module: workshop
+#: model:ir.model.constraint,message:workshop.constraint_workshop_reparation_device_type_check_name
+msgid "Existing type"
+msgstr "Tipo de dispositivo existente"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__expected_completion_date
+msgid "Expected Completion Date"
+msgstr "Fecha de finalización esperada"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__id
+msgid "ID"
+msgstr ""
+
+#. module: workshop
+#: model:ir.model.constraint,message:workshop.constraint_workshop_reparation_timesheet_check_time
+msgid "Invalid time value"
+msgstr "Valor de tiempo invalido"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.workshop_invoices_action
+#: model:ir.ui.menu,name:workshop.workshop_invoices
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation____last_update
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device____last_update
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type____last_update
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line____last_update
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag____last_update
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__write_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__write_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__write_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__write_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__write_uid
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__write_uid
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__write_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__write_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__write_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__write_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__write_date
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__line_ids
+msgid "Line"
+msgstr "Línea"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.workshop_product_action
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__product_id
+#: model:ir.ui.menu,name:workshop.workshop_products
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Material"
+msgstr "Piezas"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__model
+msgid "Model"
+msgstr "Modelo"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__name
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.device_type_view_form
+#: model_terms:ir.ui.view,arch_db:workshop.reparation_tag_view_form
+msgid "Name:"
+msgstr "Nombre:"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__status__new
+msgid "New"
+msgstr "Nuevo"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__observations
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__estate__open
+msgid "Open"
+msgstr "Abierto"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Other info"
+msgstr "Más info"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__problem_description
+msgid "Problem Description"
+msgstr "Descripción problema"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "Problem description"
+msgstr "Descripción solución"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__purchase_date
+msgid "Purchase Date"
+msgstr "Fecha de compra"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__received_date
+msgid "Received Date"
+msgstr "Fecha de recepción"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__reception_date
+#, fuzzy
+msgid "Reception Date"
+msgstr "Fecha de recepción"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Repair"
+msgstr "Reparar"
+
+#. module: workshop
+#: model:ir.ui.menu,name:workshop.workshop_menu_root
+msgid "Repair Workshop"
+msgstr "Taller de reparación"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__status__repaired
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Repaired"
+msgstr "Reparado"
+
+#. module: workshop
+#: model:ir.model.fields.selection,name:workshop.selection__workshop_reparation__status__repairing
+msgid "Repairing"
+msgstr "Reparando"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_res_partner__reparation_ids
+#: model:ir.model.fields,field_description:workshop.field_res_users__reparation_ids
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__reparation_id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__reparation_id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__reparation_id
+#: model:product.template,name:workshop.product_workshop_reparation_product_template
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Reparation"
+msgstr "Reparación"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.reparation_tag_action
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__reparation_tag_id
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_tag__property_tag_id
+msgid "Reparation Tag"
+msgstr "Etiqueta de Reparación"
+
+#. module: workshop
+#: model:ir.actions.report,name:workshop.action_report_workshop_reparation
+msgid "Reparation report"
+msgstr "Reporte de reparación"
+
+#. module: workshop
+#: model:ir.actions.act_window,name:workshop.workshop_action
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device_type__device_ids
+#: model:ir.ui.menu,name:workshop.reparations
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_view_search
+msgid "Reparations"
+msgstr "Reparaciones"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation_line
+msgid "Reparations lines"
+msgstr "Lineas de reparacion"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation_tag
+msgid "Reparations tags"
+msgstr "Etiquetas de reparaciones"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation_timesheet
+msgid "Reparations timesheets"
+msgstr "Parte de horas de las reparaciones"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_device__serial_number
+msgid "Serial Number"
+msgstr "Número de serie"
+
+#. module: workshop
+#: model:ir.ui.menu,name:workshop.settings_menu
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__solution_description
+msgid "Solution Description"
+msgstr "Solución de descripción"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "Solution description"
+msgstr "Solución de descripción"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__status
+msgid "Status"
+msgstr "Estado"
+
+#. module: workshop
+#: model:ir.ui.menu,name:workshop.reparation_tags
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__technician
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_view_search
+msgid "Technician"
+msgstr "Técnico"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_timesheet__time
+#: model_terms:ir.ui.view,arch_db:workshop.report_workshop_reparation
+msgid "Time"
+msgstr "Tiempo"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__timesheet_ids
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Timesheet"
+msgstr "Parte de horas"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation__today
+msgid "Today"
+msgstr "Hoy"
+
+#. module: workshop
+#: model:ir.model,name:workshop.model_workshop_reparation_device_type
+#, fuzzy
+msgid "Types of devices"
+msgstr "Tipos de dispositivos"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_workshop_reparation_line__price
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_form
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_clients_user_view
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_material_view
+#, fuzzy
+msgid "Workshop"
+msgstr "Taller de reparación"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_res_partner__workshop_client
+#: model:ir.model.fields,field_description:workshop.field_res_users__workshop_client
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_clients_user_view
+msgid "Workshop client"
+msgstr "Cliente del Taller de Reparación"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_account_bank_statement_line__workshop_invoice
+#: model:ir.model.fields,field_description:workshop.field_account_move__workshop_invoice
+#: model:ir.model.fields,field_description:workshop.field_account_payment__workshop_invoice
+msgid "Workshop invoice"
+msgstr "Factura del Taller de Reparación"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_material_view
+msgid "Workshop material"
+msgstr "Piezas del Taller de Reparación"
+
+#. module: workshop
+#: model:ir.model.fields,field_description:workshop.field_product_product__workshop_product
+#: model:ir.model.fields,field_description:workshop.field_product_template__workshop_product
+msgid "Workshop product"
+msgstr "Producto del Taller de Reparación"
+
+#. module: workshop
+#: model_terms:ir.ui.view,arch_db:workshop.device_type_view_form
+#: model_terms:ir.ui.view,arch_db:workshop.reparation_tag_view_form
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_timesheet_view_tree
+#: model_terms:ir.ui.view,arch_db:workshop.workshop_reparation_view_tree
+msgid "record"
+msgstr ""
