@@ -19,7 +19,7 @@ import java.util.List;
 @Stateless
 public class ServerConnection {
     
-    private final static String URL = "http://localhost:8080/training-app/api/jta/device/";
+    private final static String URL = "http://localhost:8081/api/jta/device";
     
     public List<Device> getAll(Client client) {
         try {

@@ -48,7 +48,6 @@ public class Device implements Serializable {
     public static final String SERIAL_NUMBER_TAG = "serial_number";
     public static final String FROM_ODOO_TAG = "fromOdoo";
 
-
     
 
     @Basic(optional = false)
