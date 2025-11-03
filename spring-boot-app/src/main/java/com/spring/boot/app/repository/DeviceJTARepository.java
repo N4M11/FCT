@@ -8,6 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
 @Repository
 @Transactional
 public class DeviceJTARepository {
@@ -17,12 +18,7 @@ public class DeviceJTARepository {
     
     
 
-    /**
-     * Busca un asiento contable por su identificador.
-     *
-     * @param entryId Identificador del asiento contable
-     * @return Un asiento contable(Entity)
-     */
+
     public Device get(Integer entryId) {
         Device result = null;
         try {
@@ -55,13 +51,7 @@ public class DeviceJTARepository {
         return results;
     }
 
-    /**
-     * Guarda(persist) en la base de datos.
-     *
-     * @param entry Datos (Entity)
-     *
-     * @return El registro guardado(Entity)
-     */
+
     @Transactional
     public Device create(Device entry) {
         try {
@@ -78,13 +68,7 @@ public class DeviceJTARepository {
         }
     }
 
-    /**
-     * Guarda(merge) en la base de datos.
-     *
-     * @param entry Datos (Entity)
-     *
-     * @return El registro guardado(Entity)
-     */
+
     @Transactional
     public Device update(Device entry) {
         try {
@@ -96,13 +80,7 @@ public class DeviceJTARepository {
         return entry;
     }
 
-    /**
-     * Elimina un registro por la entidad manejada.
-     *
-     * @param entry Datos del asiento contable(Entity)
-     *
-     * @return El asiento contable eliminado(Entity)
-     */
+
     @Transactional
     public Device delete(Device entry) {
         try {
@@ -113,13 +91,7 @@ public class DeviceJTARepository {
         return entry;
     }
 
-    /**
-     * Elimina un registro por su identificador
-     *
-     * @param entryId
-     *
-     * @return El resultado de la operación(LongEntity).
-     */
+    
     public Integer delete(Integer entryId) {
         Integer result = -1;
         try {
@@ -135,4 +107,4 @@ public class DeviceJTARepository {
     }
 
    
-}
+}*/

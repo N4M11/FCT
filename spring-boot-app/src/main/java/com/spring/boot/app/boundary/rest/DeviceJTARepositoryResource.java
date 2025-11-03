@@ -1,5 +1,5 @@
 package com.spring.boot.app.boundary.rest;
-
+/*
 import com.spring.boot.app.model.Device;
 import com.spring.boot.app.repository.DeviceJTARepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,4 +61,5 @@ public class DeviceJTARepositoryResource {
         }
         return ResponseEntity.notFound().build();
     }
-}
+
+}*/
