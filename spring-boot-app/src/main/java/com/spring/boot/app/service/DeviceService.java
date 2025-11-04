@@ -15,12 +15,11 @@ public interface DeviceService {
     
     Device createDevice(Device device);
     
-    void updateDevice(Integer id, Device device);
+    Device updateDevice(Integer id, Device device); 
     
     Iterable<Device> getDevices();
     
     Optional<Device> getDeviceById(Integer id);
     
     void deleteDevice(Integer id);
-    
 }

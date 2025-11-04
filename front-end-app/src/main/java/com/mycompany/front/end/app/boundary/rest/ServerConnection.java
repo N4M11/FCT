@@ -35,7 +35,7 @@ public class ServerConnection {
     
      public void create(Client client, Device device) {
         try {
-             client.target(URL+"post")
+             client.target(URL+"/post")
                         .request(MediaType.APPLICATION_JSON)
                         .post(Entity.entity(device, MediaType.APPLICATION_JSON));
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class ServerConnection {
      
       public void update(Client client, Device device) { //act
         try {
-            client.target(URL)
+            client.target(URL+"/"+device.getDeviceId())
                         .request(MediaType.APPLICATION_JSON)
                         .put(Entity.entity(device, MediaType.APPLICATION_JSON));
         } catch (Exception e) {

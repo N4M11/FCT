@@ -30,15 +30,18 @@ public class DeviceServiceImpl implements DeviceService{
     }
 
     @Override
-    public void updateDevice(Integer id, Device device) {
-        Optional<Device> optionalDevice=deviceRepository.findById(id.longValue());
-        if(optionalDevice.isPresent()){
-            Device dbDevice = optionalDevice.get();
-            dbDevice.setBrand(device.getBrand());
-            dbDevice.setModel(device.getModel());
-            dbDevice.setSerialNumber(device.getSerialNumber());
-            deviceRepository.save(dbDevice);
+    public Device updateDevice(Integer id, Device device) {
+        Optional<Device> optionalDevice = deviceRepository.findById(id.longValue());
+        
+        if (optionalDevice.isEmpty()) {
+            throw new RuntimeException("Device not found with id: " + id);
         }
+        
+        Device dbDevice = optionalDevice.get();
+        dbDevice.setBrand(device.getBrand());
+        dbDevice.setModel(device.getModel());
+        dbDevice.setSerialNumber(device.getSerialNumber());
+        return deviceRepository.save(dbDevice);
     }
 
     @Override

@@ -1,8 +1,30 @@
-perfils
-execució dsede terminal amb jar
-arquitectura i patrons de les apps fetes
+----------EXECUCIÓ DSEDE TERMINAL AMB JAR-----------------------
+
+java -jar target/spring.boot.app-0.0.1-snapshot.jar
+
+java -jar -Dspring.profiles.active=prod target/spring.boot.app-0.0.1-SNAPSHOT.jar -> amb fitxer de config i indicar vjava
+
+---------------------------------------------------------------------------------------------
+ARQUITECTURA I PATRONS DE LES APPS FETES:
+
+ Patró comú: REST(Representational State Transfer)
+
+	Trainning-app (BACKEND+FRONTEND) patró MVC,DAO, arquitectura en capes
+
+	Frontend + trainingapp (backend separat de frontend) client-server
+
+	client-app (java app client que fa peticions rest a trainingapp) client-server
+
+	SpringBootApp (backend amb arquitectura REST i DAO)+Frontend -> client-server.usa crud Substitueix jakarta
 
 
+---------------------------------------------------------------------------------------------
+
+implementar patró a javapp: 
+
+
+---------------------------------------------------------------------------------------------
+pkill -f 'spring-boot'
 GIT TOKEN:
 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
 
