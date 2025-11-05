@@ -4,10 +4,10 @@
 
 package com.mycompany.client.app;
 
+import com.mycompany.client.app.memento.MyTableHistory;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
-import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -33,6 +33,18 @@ public class ClientApp {
             System.out.println("ERROR <getAll>: " + e.getMessage());
             return null;
         }
+    }
+    
+    public static MyTable getById(Client client,MyTable mt){
+        try {
+            return client.target(URL+mt.getId())
+                        .request(MediaType.APPLICATION_JSON)
+                        .get(MyTable.class); 
+        } catch (Exception e) {
+            System.out.println("ERROR <getById>: " + e.getMessage());
+            return null;
+        }
+    
     }
     
     public static Response create(Client client, MyTable myTable) {
@@ -73,6 +85,7 @@ public class ClientApp {
 
     public static void main(String[] args) {
         Client client = ClientBuilder.newClient();
+        MyTableHistory history = new MyTableHistory();
         
         //String name, Date birthdate, String address, boolean enable
         MyTable mt1,mt2;
@@ -101,21 +114,27 @@ public class ClientApp {
             
 
         mt1 = new MyTable("Client",date,"Calle Principal 123",true);
-        
+        mt1.setId(19l);
         System.out.println("Creating mt...");
         r=create(client,mt1);
         System.out.println(r);
+
+        System.out.println("Saving mt address...");
+        history.saveState(mt1.save());
+
         
-        
-        System.out.println("Updating mt id= 7...");
-        mt1.setId(7l);
+        System.out.println("Updating mt...");
         mt1.setAddress("Adress updated");
         r=update(client,mt1);
         System.out.println(r);
         
-        System.out.println("Deleting mt id = 8...");
-        mt1.setId(9l);
-        r=delete(client,mt1.getId());
+        System.out.println("Current address: "+mt1.getAddress());
+        System.out.println("Restoring previus address...");
+        mt1.restore(history.undo());
+        update(client,mt1);
+        
+        System.out.println("Deleting mt id = 20...");
+        r=delete(client,20l);
         System.out.println(r);
         
         all = getAll(client);

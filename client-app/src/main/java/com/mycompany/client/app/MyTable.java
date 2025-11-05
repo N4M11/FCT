@@ -1,5 +1,6 @@
 package com.mycompany.client.app;
 
+import com.mycompany.client.app.memento.Memento;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,6 +21,7 @@ import java.util.Date;
 /**
  *
  * @author LuisCarlosGonzalez
+ * Originator
  */
 @Entity
 @Table(name = "my_table")
@@ -57,6 +59,13 @@ public class MyTable implements Serializable {
         this.birthdate = birthdate;
         this.address = address;
         this.enabled = enabled;
+    }
+    
+    public MyTable(MyTable mt) {
+        this.name = mt.getName();
+        this.birthdate = mt.getBirthdate();
+        this.address = mt.getAddress();
+        this.enabled = mt.getEnabled();
     }
 
     public Long getId() {
@@ -122,5 +131,14 @@ public class MyTable implements Serializable {
     @Override
     public String toString() {
         return "MyTable{" + "id=" + id + ", name=" + name + ", birthdate=" + birthdate + ", address=" + address + ", enabled=" + enabled + '}';
+    }
+    
+    
+    public Memento save(){
+        return new Memento(this.address);
+    }
+    
+    public void restore(Memento memento){
+        this.address=memento.getSavedAdress();
     }
 }

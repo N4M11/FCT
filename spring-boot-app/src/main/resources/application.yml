@@ -7,31 +7,6 @@ spring:
     active: prod
   autoconfigure:
         exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-      
----
-spring:
-    config:
-      activate:
-        on-profile: dev
-        
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        password: diakite00
-        url: jdbc:postgresql://localhost:5432/testdb
-        username: nami
-        
-    jpa:
-        hibernate:
-            ddl-auto: update
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect
-                format_sql: true
-        show-sql: true
-        
-    session:
-        store-type: jdbc
-        timeout: 1800
 
 ---
 spring:
@@ -47,7 +22,7 @@ spring:
         
     jpa:
         hibernate:
-            ddl-auto: update
+            ddl-auto: validate
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect

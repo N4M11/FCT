@@ -4,6 +4,20 @@ java -jar target/spring.boot.app-0.0.1-snapshot.jar
 
 java -jar -Dspring.profiles.active=prod target/spring.boot.app-0.0.1-SNAPSHOT.jar -> amb fitxer de config i indicar vjava
 
+exlude?
+
+	<resources>
+                <resource>
+                    <directory>src/main</directory>
+                    <filtering>true</filtering>
+                    <excludes>
+                        <exclude>/resources</exclude>
+                    </excludes>
+                </resource>
+            </resources>
+            
+java -jar target/spring.boot.app-0.0.1-SNAPSHOT.jar --spring.config.location=src/main/resources/dev_conf.yml
+
 ---------------------------------------------------------------------------------------------
 ARQUITECTURA I PATRONS DE LES APPS FETES:
 
@@ -20,7 +34,8 @@ ARQUITECTURA I PATRONS DE LES APPS FETES:
 
 ---------------------------------------------------------------------------------------------
 
-implementar patró a javapp: 
+implementar patró a javapp: memento
+fer lo del correu
 
 
 ---------------------------------------------------------------------------------------------
